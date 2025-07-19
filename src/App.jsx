@@ -1,9 +1,9 @@
-import LoginPage from './pages/LoginPage'
+import Router from './routes/Router'
 
 const App = () => {
   return (
     <div className='h-screen w-full'>
-      <LoginPage/>
+      <Router/>
     </div>
   )
 }
