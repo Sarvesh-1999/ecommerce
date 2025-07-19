@@ -1,17 +1,30 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AxiosInstance } from "../routes/axiosInstance";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (e) => {
+  const navigate = useNavigate();
+
+  const handleRegister = async (e) => {
     e.preventDefault();
     let payload = { userName, email, password };
-    console.log(payload);
+    try {
+      let response = await AxiosInstance.post("/user/register", payload);
+      console.log(response);
+      if (response.data.success) {
+        navigate("/");
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   return (
