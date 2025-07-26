@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Person3Icon from "@mui/icons-material/Person3";
+import ProductCard from "../components/ProductCard";
+import { ProductsContext } from "../context/ProductsContextProvider";
 
 const items = [
   <div className="item" data-value="1">
@@ -73,6 +75,8 @@ const brandsList = [
 ];
 
 const HomePage = () => {
+  let { allProducts } = useContext(ProductsContext);
+
   return (
     <div>
       <Navbar />
@@ -137,26 +141,13 @@ const HomePage = () => {
         </header>
 
         <article className="border p-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-          <div className="p-5">
-            <div className="p-4 border border-gray-300 rounded-xl shadow-lg">
-              <img
-                src="https://www.dropicts.com/wp-content/uploads/Dropicts-Feautred-Images-Beauty-Product-02.jpg"
-                alt=""
-                className="h-[200px] w-full rounded-t-lg"
-              />
-
-              <h1 className="text-2xl font-bold">Product Name</h1>
-
-              <p className="flex justify-between font-semibold">
-                <del className="text-gray-600">Rs.1059</del>
-                <span>Rs.899</span>
-              </p>
-
-              <button className="w-full bg-black text-white py-2 rounded font-semibold">
-                Add to cart
-              </button>
-            </div>
-          </div>
+          {allProducts.length === 0 ? (
+            <h1>No Products Available</h1>
+          ) : (
+            allProducts.map((product) => {
+              return <ProductCard key={product.id} product={product} />;
+            })
+          )}
         </article>
       </section>
     </div>

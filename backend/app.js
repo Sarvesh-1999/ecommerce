@@ -20,6 +20,10 @@ if (process.argv[2] === "seed") {
   let adminSeeder = require("./seeder/adminSeeder");
   adminSeeder();
 }
+// if (process.argv[2] === "data") {
+//   let adminSeeder = require("./seeder/productSeeder");
+//   adminSeeder();
+// }
 
 const app = express();
 
@@ -29,7 +33,13 @@ app.use(
     origin: process.env.CORS_ORIGIN,
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Expires", "Pragma"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Cache-Control",
+      "Expires",
+      "Pragma",
+    ],
   })
 );
 

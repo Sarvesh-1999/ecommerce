@@ -21,6 +21,9 @@ const myRoutes = createBrowserRouter([
       </UserPrivate>
     ),
   },
+  {
+    
+  }
 ]);
 
 const Router = () => {
