@@ -18,25 +18,44 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="flex justify-between items-center px-10 shadow">
-      <div className="font-extrabold text-2xl">QShop</div>
-
-      <section className="flex gap-8 font-semibold">
-        <div className="p-3">
-          <a href="">Home</a>
+    <nav className="w-full shadow bg-white sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0 font-extrabold text-2xl text-purple-700">QShop</div>
+          <div className="hidden md:flex gap-8 font-semibold items-center">
+            <a href="/" className="p-2 hover:text-purple-600 transition">Home</a>
+            <a href="/products" className="p-2 hover:text-purple-600 transition">Products</a>
+            <a href="/cart" className="p-2 hover:text-purple-600 transition">Cart</a>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold hover:from-blue-500 hover:to-purple-600 transition"
+            >
+              Logout
+            </button>
+          </div>
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <button id="mobile-menu-btn" className="text-3xl text-purple-700 focus:outline-none" onClick={() => {
+              const menu = document.getElementById('mobile-menu');
+              if (menu) menu.classList.toggle('hidden');
+            }}>
+              &#9776;
+            </button>
+          </div>
         </div>
-        <div className="p-3">
-          <a href="">Products</a>
-        </div>
-        <div className="p-3">Cart</div>
-        <div className="p-3">
-          <span
+      </div>
+      {/* Mobile menu */}
+      <div id="mobile-menu" className="md:hidden hidden px-4 pb-4 bg-white border-t">
+        <a href="/" className="block py-2 font-semibold hover:text-purple-600">Home</a>
+        <a href="/products" className="block py-2 font-semibold hover:text-purple-600">Products</a>
+        <a href="/cart" className="block py-2 font-semibold hover:text-purple-600">Cart</a>
+        <button
           onClick={handleLogout}
-          className="px-3 py-1 rounded-2xl bg-black text-white">
-            Logout
-          </span>
-        </div>
-      </section>
+          className="w-full mt-2 px-4 py-2 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold hover:from-blue-500 hover:to-purple-600 transition"
+        >
+          Logout
+        </button>
+      </div>
     </nav>
   );
 };

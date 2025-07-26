@@ -78,78 +78,71 @@ const HomePage = () => {
   let { allProducts } = useContext(ProductsContext);
 
   return (
-    <div>
+    <div className="bg-gray-50 min-h-screen">
       <Navbar />
-      <AliceCarousel
-        autoPlay
-        autoPlayStrategy="none"
-        autoPlayInterval={2000}
-        animationDuration={1000}
-        animationType="slide"
-        infinite
-        touchTracking={false}
-        disableDotsControls
-        disableButtonsControls
-        items={items}
-      />
-
-      <section className=" p-10">
-        <header className="font-extrabold text-5xl">
-          <h1 className="text-center">Shop By Category</h1>
-        </header>
-
-        <article className=" p-20 flex justify-evenly flex-wrap">
-          {categoryList.map((category) => {
-            return (
-              <div className="px-10 py-5 border border-gray-300 rounded-lg shadow">
-                <figure className="text-lg text-center p-3">
-                  {category.icon}
-                </figure>
-                <h3 className=" text-center text-xl font-semibold">
-                  {category.title}
-                </h3>
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="py-4 px-2">
+          <AliceCarousel
+            autoPlay
+            autoPlayStrategy="none"
+            autoPlayInterval={2000}
+            animationDuration={1000}
+            animationType="slide"
+            infinite
+            touchTracking={false}
+            disableDotsControls
+            disableButtonsControls
+            items={items.map((item, idx) => (
+              <div key={idx} className="w-full h-40 sm:h-64 md:h-80 flex items-center justify-center">
+                {item}
               </div>
-            );
-          })}
-        </article>
-      </section>
+            ))}
+          />
+        </div>
 
-      <section className=" p-10">
-        <header className="font-extrabold text-5xl">
-          <h1 className="text-center">Shop By Brands</h1>
-        </header>
-
-        <article className=" p-20 flex justify-evenly flex-wrap">
-          {brandsList.map((category) => {
-            return (
-              <div className="px-10 py-5 border border-gray-300 rounded-lg shadow">
-                <figure className="text-lg text-center p-3">
-                  {category.icon}
-                </figure>
-                <h3 className=" text-center text-xl font-semibold">
-                  {category.title}
-                </h3>
+        <section className="py-8 px-2">
+          <header className="font-extrabold text-3xl sm:text-4xl mb-6">
+            <h1 className="text-center">Shop By Category</h1>
+          </header>
+          <article className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {categoryList.map((category, idx) => (
+              <div key={idx} className="flex flex-col items-center px-4 py-6 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition">
+                <figure className="text-2xl mb-2">{category.icon}</figure>
+                <h3 className="text-center text-base sm:text-lg font-semibold">{category.title}</h3>
               </div>
-            );
-          })}
-        </article>
-      </section>
+            ))}
+          </article>
+        </section>
 
-      <section className="p-10 border">
-        <header className="font-extrabold text-5xl">
-          <h1 className="text-center">Featured Products</h1>
-        </header>
+        <section className="py-8 px-2">
+          <header className="font-extrabold text-3xl sm:text-4xl mb-6">
+            <h1 className="text-center">Shop By Brands</h1>
+          </header>
+          <article className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {brandsList.map((brand, idx) => (
+              <div key={idx} className="flex flex-col items-center px-4 py-6 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition">
+                <figure className="text-2xl mb-2">{brand.icon}</figure>
+                <h3 className="text-center text-base sm:text-lg font-semibold">{brand.title}</h3>
+              </div>
+            ))}
+          </article>
+        </section>
 
-        <article className="border p-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-          {allProducts.length === 0 ? (
-            <h1>No Products Available</h1>
-          ) : (
-            allProducts.map((product) => {
-              return <ProductCard key={product.id} product={product} />;
-            })
-          )}
-        </article>
-      </section>
+        <section className="py-8 px-2">
+          <header className="font-extrabold text-3xl sm:text-4xl mb-6">
+            <h1 className="text-center">Featured Products</h1>
+          </header>
+          <article className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {allProducts.length === 0 ? (
+              <h1 className="text-center col-span-full">No Products Available</h1>
+            ) : (
+              allProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            )}
+          </article>
+        </section>
+      </div>
     </div>
   );
 };

@@ -28,11 +28,11 @@ const RegisterPage = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-purple-100 py-8 px-2">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-purple-100 py-6 px-2">
       <article className="w-full max-w-4xl bg-white/90 border border-gray-200 flex flex-col md:flex-row rounded-3xl shadow-2xl overflow-hidden">
-        {/* Left Side */}
-        <div className="flex flex-col justify-center items-center w-full md:w-1/2 p-6 sm:p-10 bg-white">
-          <form className="w-full max-w-sm" onSubmit={handleRegister}>
+        {/* Left Side (Form) */}
+        <div className="flex flex-col justify-center items-center w-full md:w-1/2 p-4 sm:p-8 bg-white">
+          <form className="w-full max-w-xs sm:max-w-sm" onSubmit={handleRegister}>
             <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800">
               Create Your Account
             </h1>
@@ -90,13 +90,13 @@ const RegisterPage = () => {
           </form>
         </div>
 
-        {/* Right Side (Form) */}
+        {/* Right Side */}
         <div className="hidden md:flex flex-col justify-center items-center bg-gradient-to-br from-blue-400 to-purple-400 text-white p-10 w-full md:w-1/2">
           <h1 className="text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg">
             Welcome Page
           </h1>
           <p className="text-lg lg:text-xl font-semibold opacity-90">
-            Already registered? <Link to={"/"}>Sign in</Link>
+            Already registered? <Link to={"/"} className="underline hover:text-white">Sign in</Link>
           </p>
         </div>
       </article>
