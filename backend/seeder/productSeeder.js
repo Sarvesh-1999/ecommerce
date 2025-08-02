@@ -1,6 +1,6 @@
 let arr = [
   {
-    image: "https://dummyimage.com/580x257",
+    image: "https://wheyne.co.in/wp-content/uploads/2024/08/ONE-WHEY-AMERICAN-NUTS-ICE-CREAM--500x500.png",
     title: "With research",
     description: "Walk government especially purpose record safe see.",
     category: "electronics",
@@ -11,7 +11,7 @@ let arr = [
     averageReview: 1.2,
   },
   {
-    image: "https://www.lorempixel.com/605/502",
+    image: "https://skyroots.in/wp-content/uploads/2021/10/cover-photo-500x500.png",
     title: "National weight consumer",
     description:
       "Too want catch alone city. Fall nation share. Always wind time happy let baby trial see.",
@@ -22,31 +22,7 @@ let arr = [
     totalStock: 153,
     averageReview: 1.6,
   },
-  {
-    image: "https://placeimg.com/722/445/any",
-    title: "Culture newspaper sea",
-    description:
-      "Field father join read team. But whole wide as yet now. Meeting a loss man list economy sign population.",
-    category: "electronics",
-    brand: "Harris LLC",
-    price: 800.83,
-    salePrice: 157.2,
-    totalStock: 89,
-    averageReview: 0.1,
-  },
-  {
-    image: "https://placekitten.com/46/286",
-    title: "Analysis foreign religious",
-    description:
-      "Past why environment question wrong explain. Respond realize perform candidate grow we. Stay environmental hotel no guy against. Buy news light interest.",
-    category: "furniture",
-    brand: "White, Day and Wilkins",
-    price: 432.11,
-    salePrice: 115.43,
-    totalStock: 482,
-    averageReview: 3.4,
-  },
-];
+ ];
 
 const productCollection = require("../models/product.model");
 

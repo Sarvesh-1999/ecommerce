@@ -20,10 +20,10 @@ if (process.argv[2] === "seed") {
   let adminSeeder = require("./seeder/adminSeeder");
   adminSeeder();
 }
-// if (process.argv[2] === "data") {
-//   let adminSeeder = require("./seeder/productSeeder");
-//   adminSeeder();
-// }
+if (process.argv[2] === "data") {
+  let adminSeeder = require("./seeder/productSeeder");
+  adminSeeder();
+}
 
 const app = express();
 
