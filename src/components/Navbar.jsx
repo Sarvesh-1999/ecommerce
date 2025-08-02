@@ -3,6 +3,7 @@ import { AxiosInstance } from "../routes/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import { toast } from "react-toastify";
+import CartDrawer from "./CartDrawer";
 
 const Navbar = () => {
   let { setIsLoggedInUser } = useContext(AuthContext);
@@ -25,7 +26,9 @@ const Navbar = () => {
           <div className="hidden md:flex gap-8 font-semibold items-center">
             <a href="/" className="p-2 hover:text-purple-600 transition">Home</a>
             <a href="/products" className="p-2 hover:text-purple-600 transition">Products</a>
-            <a href="/cart" className="p-2 hover:text-purple-600 transition">Cart</a>
+            <div  className="p-2 hover:text-purple-600 transition">
+              <CartDrawer/>
+            </div>
             <button
               onClick={handleLogout}
               className="px-4 py-2 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold hover:from-blue-500 hover:to-purple-600 transition"

@@ -10,18 +10,7 @@ const ProductsContextProvider = (props) => {
     let res = await AxiosInstance.get("/shop/product/get");
     console.log(res);
     if (res.data.success) {
-      //   setAllProducts(res.data.data);
-      let sampleProduct = [
-        {
-          id: 1,
-          title: "Sample Product",
-          price: 1080,
-          salePrice: 899,
-          image: "",
-        },
-      ];
-
-      setAllProducts(sampleProduct);
+      setAllProducts(res.data.data);
     } else {
       setAllProducts([]);
     }
